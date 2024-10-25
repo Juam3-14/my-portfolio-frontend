@@ -2,6 +2,8 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Github, Linkedin, Twitter } from "lucide-react"
+import EmailIconButton from "../icons/emailButton"
+import IconsCollection from "../icons/iconsCollection"
 
 const LandingSection: React.FC = () => {
     return (
@@ -21,17 +23,7 @@ const LandingSection: React.FC = () => {
                     <p className="text-xl text-muted-foreground">
                         Information Systems Engineer
                     </p>
-                    <div className="flex space-x-4">
-                        <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
-                            <Github className="h-6 w-6" />
-                        </Link>
-                        <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                            <Linkedin className="h-6 w-6" />
-                        </Link>
-                        <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                            <Twitter className="h-6 w-6" />
-                        </Link>
-                    </div>
+                    <IconsCollection />
                 </div>
                 <div className="space-y-4">
                     <p className="text-lg text-muted-foreground">

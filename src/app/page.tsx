@@ -35,7 +35,7 @@ export default function Component() {
         </section>
 
         <section id="contactMe" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
-          <ContactMe title="Contact Me" subtitle="I will answer soon :)" />
+          <ContactMe />
         </section>
 
       </main>
