@@ -35,7 +35,7 @@ const LandingSection: React.FC = () => {
                 </div>
                 <div className="space-y-4">
                     <p className="text-lg text-muted-foreground">
-                        Hello! I'm a passionate Information Systems Engineer on a journey to become a Full Stack Developer. With a strong foundation in both front-end and back-end technologies, I'm constantly learning and improving my skills to create robust and user-friendly web applications. This page is currently in progress, but feel free to contact me for feedback or any other topic :D
+                        Hi! I'm a passionate Information Systems Engineer on a journey to become a Full Stack Developer. With a strong foundation in both front-end and back-end technologies, I'm constantly learning and improving my skills to create robust and user-friendly web applications. This page is currently in progress, but feel free to contact me for feedback or any other topic :D
                     </p>
                     <div className="flex space-x-4">
                         <Button asChild>
