@@ -1,10 +1,10 @@
 "use client"
 
 import React, { useState } from 'react'
-import { Card, CardContent } from "@/components/ui/card";
-import { SkillCardProps } from "@/data/types";
+import { Card, CardContent } from "@/components/ui/card"
+import { SkillCardProps } from "@/data/types"
 import { motion, AnimatePresence } from "framer-motion"
-
+import { ChevronDown } from 'lucide-react'
 
 interface SkillCardsProps {
     skills: SkillCardProps[];
@@ -19,12 +19,6 @@ export default function SkillCards({ skills, title, subtitle }: SkillCardsProps)
         setExpandedSkill(expandedSkill === name ? null : name)
     }
 
-    const sortedSkills = [...skills].sort((a, b) => {
-        if (a.name === expandedSkill) return -1
-        if (b.name === expandedSkill) return 1
-        return 0
-    })
-
     return (
         <div className="mt-12">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-center mb-8">{title}</h2>
@@ -34,7 +28,7 @@ export default function SkillCards({ skills, title, subtitle }: SkillCardsProps)
                 layout
             >
                 <AnimatePresence>
-                    {sortedSkills.map((skill) => (
+                    {skills.map((skill) => (
                         <motion.div
                             key={skill.name}
                             layout
@@ -45,13 +39,20 @@ export default function SkillCards({ skills, title, subtitle }: SkillCardsProps)
                             className={expandedSkill === skill.name ? "col-span-full" : ""}
                         >
                             <Card
-                                className="bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-500 ease-in-out cursor-pointer h-full"
+                                className="bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-500 ease-in-out cursor-pointer h-full relative"
                                 onClick={() => handleToggle(skill.name)}
                             >
                                 <CardContent className="p-4">
                                     <div className="flex justify-between items-center mb-2">
                                         <h3 className="font-semibold">{skill.name}</h3>
-                                        <span className="text-sm font-medium text-gray-600 dark:text-gray-400">{skill.level}%</span>
+                                        <div className="flex items-center">
+                                            <span className="text-sm font-medium text-gray-600 dark:text-gray-400 mr-2">{skill.level}%</span>
+                                            <ChevronDown
+                                                className={`transition-transform duration-300 ${expandedSkill === skill.name ? 'rotate-180' : ''
+                                                    }`}
+                                                size={20}
+                                            />
+                                        </div>
                                     </div>
                                     <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 mb-4">
                                         <div
@@ -70,6 +71,11 @@ export default function SkillCards({ skills, title, subtitle }: SkillCardsProps)
                                     >
                                         <p className="text-gray-600 dark:text-gray-300">{skill.description}</p>
                                     </motion.div>
+                                    <div className="absolute bottom-2 right-2 sm:hidden">
+                                        <span className="text-xs text-gray-500 bg-gray-200 dark:bg-gray-700 dark:text-gray-400 px-2 py-1 rounded-full">
+                                            More...
+                                        </span>
+                                    </div>
                                 </CardContent>
                             </Card>
                         </motion.div>

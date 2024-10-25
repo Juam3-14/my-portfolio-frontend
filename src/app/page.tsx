@@ -6,6 +6,7 @@ import AboutMe from "@/components/home/aboutMe"
 import Header from "@/components/layouts/Header"
 import LandingSection from "@/components/home/landing"
 import Projects from "@/components/home/projects"
+import ContactMe from "@/components/home/contactMe"
 
 export default function Component() {
   return (
@@ -32,6 +33,11 @@ export default function Component() {
         <section id="projects" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
           <Projects />
         </section>
+
+        <section id="contactMe" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+          <ContactMe title="Contact Me" subtitle="I will answer soon :)" />
+        </section>
+
       </main>
       <Footer />
     </div>

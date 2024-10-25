@@ -13,7 +13,7 @@ const LandingSection: React.FC = () => {
                         alt="Juan Pablo Piemonte"
                         width={350}
                         height={300}
-                        className="rounded-full border-4 border-primary"
+                        className="rounded-full border-4 border-primary priority"
                     />
                     <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
                         Juan Pablo Piemonte
@@ -39,7 +39,7 @@ const LandingSection: React.FC = () => {
                     </p>
                     <div className="flex space-x-4">
                         <Button asChild>
-                            <Link href="#contact">Contact Me</Link>
+                            <Link href="#contactMe">Contact Me</Link>
                         </Button>
                         <Button asChild variant="outline">
                             <Link href="/aboutme">Resume/CV</Link>

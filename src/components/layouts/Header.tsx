@@ -15,7 +15,7 @@ const Header = () => {
                     <Link className="text-sm font-medium hover:text-primary transition-colors" href="/#projects">
                         Projects
                     </Link>
-                    <Link className="text-sm font-medium hover:text-primary transition-colors" href="/#contact">
+                    <Link className="text-sm font-medium hover:text-primary transition-colors" href="/#contactMe">
                         Contact Info
                     </Link>
                 </nav>

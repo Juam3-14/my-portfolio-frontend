@@ -11,7 +11,6 @@ import Footer from "@/components/layouts/Footer"
 
 import { knownTools, knownSkills } from '@/data/data'
 import SkillCards from '@/components/skillCards'
-import { useState } from 'react'
 
 const AboutPage: React.FC = () => {
     return (
@@ -20,16 +19,6 @@ const AboutPage: React.FC = () => {
             <main className="flex-1 py-12 md:py-24 lg:py-32">
                 <div className="container px-4 md:px-6 max-w-7xl mx-auto">
                     <AboutMe />
-                    <SkillCards
-                        skills={knownTools}
-                        title="Tools"
-                        subtitle="Proficiency levels: from 0% (beginner) to 100% (expert)"
-                    />
-                    <SkillCards
-                        skills={knownSkills}
-                        title="Skills"
-                        subtitle="Proficiency levels: highlighting areas of personal and professional strength"
-                    />
                     <div className="mt-12 text-center flex justify-center space-x-4">
                         <Button asChild>
                             <a href="resources/Res_JuanPabloPiemonte.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center">
@@ -44,6 +33,17 @@ const AboutPage: React.FC = () => {
                             </a>
                         </Button>
                     </div>
+                    <SkillCards
+                        skills={knownTools}
+                        title="Tools"
+                        subtitle="Proficiency levels: from 0% (beginner) to 100% (expert)"
+                    />
+                    <SkillCards
+                        skills={knownSkills}
+                        title="Skills"
+                        subtitle="Proficiency levels: highlighting areas of personal and professional strength"
+                    />
+
                 </div>
             </main>
             <Footer />
