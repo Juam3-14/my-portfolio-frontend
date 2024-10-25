@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+    commands: 
+      - echo "Installing dependencies using node20"
+      - npm ci
+      - echo "Done installing dependencies ==>"
+      
+  build:
+    commands:
+      - echo "Building the React project"
+      - npm run build
+      - echo "Done building the project ==> Exporting artifacts"
+
+artifacts:
+  files:
+    - '**/*'  # Incluir todos los archivos y carpetas generados en el build
+  discard-paths: no  # Mantener la estructura de carpetas
+  base-directory: out  # Carpeta donde se genera el build
