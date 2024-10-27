@@ -1,5 +1,5 @@
 // data.ts
-import { CareerExperienceItem, EducationItem, CourseItem, SkillCardProps } from './types';
+import { CareerExperienceItem, EducationItem, CourseItem, SkillCardProps, Presentation } from './types';
 
 export const careerExperienceData: CareerExperienceItem[] = [
     {
@@ -85,4 +85,11 @@ export const knownSkills: SkillCardProps[] = [
     { name: "Perseverance", level: 95, description: "Soy un tipazo." },
     { name: "Integrity", level: 90, description: "Soy un tipazo." },
     { name: "Self Management", level: 90, description: "Soy un tipazo." },
+]
+
+export const presentation: Presentation[] = [
+    {
+        title: "Welcome to my still-in-progress Personal Portfolio!", 
+        text: "Hi! I'm a passionate Information Systems Engineer on a journey to become a Full Stack Developer. With a strong foundation in both front-end and back-end technologies, I'm constantly learning and improving my skills to create robust and user-friendly web applications. This page is currently in progress, but feel free to contact me for feedback or any other topic :D",
+    }
 ]

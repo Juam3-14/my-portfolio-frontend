@@ -8,7 +8,7 @@ interface IconWithTooltipProps {
 
 const IconWithTooltip: React.FC<IconWithTooltipProps> = ({ url, Icon, label }) => {
     return (
-        <div className="relative inline-block">
+        <div className="relative inline-block hover:text-gray-500 transition-colors">
             <a
                 href={url}
                 target="_blank"
