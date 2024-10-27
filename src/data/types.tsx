@@ -25,3 +25,8 @@ export interface SkillCardProps {
     level: number;
     description: string;
 }
+
+export interface Presentation {
+    title: string;
+    text: string;
+}

@@ -1,9 +1,9 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Twitter } from "lucide-react"
-import EmailIconButton from "../icons/emailButton"
 import IconsCollection from "../icons/iconsCollection"
+import { presentation } from '@/data/data';
+
 
 const LandingSection: React.FC = () => {
     return (
@@ -25,10 +25,13 @@ const LandingSection: React.FC = () => {
                     </p>
                     <IconsCollection />
                 </div>
-                <div className="space-y-4">
-                    <p className="text-lg text-muted-foreground">
-                        Hi! I'm a passionate Information Systems Engineer on a journey to become a Full Stack Developer. With a strong foundation in both front-end and back-end technologies, I'm constantly learning and improving my skills to create robust and user-friendly web applications. This page is currently in progress, but feel free to contact me for feedback or any other topic :D
-                    </p>
+                <div className="space-y-4 flex flex-col">
+                    {presentation.map((item, index) => (
+                        <div key={index} className="space-y-2">
+                            {item.title && <h2 className="text-2xl font-semibold">{item.title}</h2>}
+                            <p className="text-lg text-muted-foreground">{item.text}</p>
+                        </div>
+                    ))}
                     <div className="flex space-x-4">
                         <Button asChild>
                             <Link href="#contactMe">Contact Me</Link>

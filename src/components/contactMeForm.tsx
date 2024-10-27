@@ -77,39 +77,41 @@ export default function ContactMeForm({ title, subtitle }: ContactMeProps) {
             return
         }
 
+        const action = "CONTACT_FORM_SUBMIT"
         const formData = new FormData(formRef.current)
-        formData.append('recaptchaToken', token)
 
-        // Simula una respuesta del backend sin hacer realmente la petición
-        setTimeout(() => {
-            console.log('Simulated backend response: success');
-            setSubmitStatus('success')
-            router.refresh()
-            setIsSubmitting(false)
-        }, 1000) // Simulamos un retraso de 1 segundo para la respuesta
+        const formValues = {
+            firstName: formData.get("firstName"),
+            lastName: formData.get("lastName"),
+            email: formData.get("email"),
+            phone: formData.get("phone"),
+            message: formData.get("message")
+        }
 
-        // Acá agregar luego la validación de captcha con el backend.
-        // try {
-        //     const response = await fetch('/api/contact', {
-        //         method: 'POST',
-        //         body: formData,
-        //     })
+        try {
+            const response = await fetch((process.env.NEXT_PUBLIC_COMUNICATIONS_BACKEND) + "/verify-recaptcha", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ token, action, ...formValues }),
+            });
 
-        //     if (response.ok) {
-        //         setSubmitStatus('success')
-        //         router.refresh()
-        //     } else {
-        //         const errorData = await response.json()
-        //         console.error('Server error:', errorData)
-        //         setSubmitStatus('error')
-        //     }
-        // } catch (error) {
-        //     console.error('Fetch error:', error)
-        //     setSubmitStatus('error')
-        // } finally {
-        //     setIsSubmitting(false)
-        // }
-    }
+            const result = await response.json();
+
+            if (response.ok) {
+                // Procesar el envío real del formulario o acciones adicionales si es válido
+                setSubmitStatus('success');
+                router.refresh();
+            } else {
+                console.error("Error en la validación del reCAPTCHA:", result);
+                setSubmitStatus('error');
+            }
+        } catch (error) {
+            console.error("Fetch error:", error);
+            setSubmitStatus('error');
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
     return (
         <>
