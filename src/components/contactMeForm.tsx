@@ -35,13 +35,17 @@ export default function ContactMeForm({ title, subtitle }: ContactMeProps) {
     const [recaptchaLoaded, setRecaptchaLoaded] = useState(false)
     const formRef = useRef<HTMLFormElement>(null)
     const textareaRef = useRef<HTMLTextAreaElement>(null)
+    const [formReset, setFormReset] = useState(false)
 
     useEffect(() => {
-        console.log('reCAPTCHA site key:', process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY);
         if (typeof window !== 'undefined' && window.grecaptcha && window.grecaptcha.enterprise) {
             setRecaptchaLoaded(true)
         }
-    }, [])
+        if (formReset) {
+            if (formRef.current) formRef.current.reset();
+            setFormReset(false);
+        }
+    }, [formReset])
 
     const executeRecaptcha = async () => {
         if (!recaptchaLoaded) {
@@ -129,7 +133,6 @@ export default function ContactMeForm({ title, subtitle }: ContactMeProps) {
             <Script
                 src={`https://www.google.com/recaptcha/enterprise.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
                 onLoad={() => {
-                    console.log('reCAPTCHA script loaded')
                     setRecaptchaLoaded(true)
                 }}
             />
@@ -139,12 +142,19 @@ export default function ContactMeForm({ title, subtitle }: ContactMeProps) {
                     <p className="text-muted-foreground text-center">{subtitle}</p>
                 </CardHeader>
                 <CardContent>
-                    {submitStatus === 'success' ? (
+                    {submitStatus === 'success' && !formReset ? (
                         <div className="text-center space-y-4">
                             <CheckCircle className="w-16 h-16 text-green-500 mx-auto" />
                             <h3 className="text-xl font-semibold">Message Sent Successfully!</h3>
                             <p>Thank you for your message. You will receive an email confirmation shortly.</p>
-                            <Button onClick={() => router.refresh()} className="mt-4">Send Another Message</Button>
+                            <Button onClick={() => {
+                                setSubmitStatus('idle');
+                                setIsSubmitting(false);
+                                setMessageLength(0);
+                                setFormReset(true);
+                            }} className="mt-4">
+                                Send Another Message
+                            </Button>
                         </div>
                     ) : (
                         <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
