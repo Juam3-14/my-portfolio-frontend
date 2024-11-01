@@ -29,9 +29,12 @@ declare global {
 export default function ContactMeForm({ title, subtitle }: ContactMeProps) {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+    const [messageLength, setMessageLength] = useState(0)
+    const [textareaHeight, setTextareaHeight] = useState('auto')
     const router = useRouter()
     const [recaptchaLoaded, setRecaptchaLoaded] = useState(false)
     const formRef = useRef<HTMLFormElement>(null)
+    const textareaRef = useRef<HTMLTextAreaElement>(null)
 
     useEffect(() => {
         console.log('reCAPTCHA site key:', process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY);
@@ -50,7 +53,6 @@ export default function ContactMeForm({ title, subtitle }: ContactMeProps) {
                 process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '',
                 { action: 'CONTACT_FORM_SUBMIT' }
             )
-            console.log('reCAPTCHA token:', token) // Log the token for debugging
             return token
         } catch (error) {
             console.error('Error executing reCAPTCHA:', error)
@@ -71,7 +73,6 @@ export default function ContactMeForm({ title, subtitle }: ContactMeProps) {
         }
 
         if (!formRef.current) {
-            console.error('Form reference is null')
             setSubmitStatus('error')
             setIsSubmitting(false)
             return
@@ -98,7 +99,6 @@ export default function ContactMeForm({ title, subtitle }: ContactMeProps) {
             const result = await response.json();
 
             if (response.ok) {
-                // Procesar el envío real del formulario o acciones adicionales si es válido
                 setSubmitStatus('success');
                 router.refresh();
             } else {
@@ -110,6 +110,17 @@ export default function ContactMeForm({ title, subtitle }: ContactMeProps) {
             setSubmitStatus('error');
         } finally {
             setIsSubmitting(false);
+        }
+    };
+
+    const handleMessageChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        const { value } = event.target;
+        setMessageLength(value.length);
+
+        // Adjust textarea height
+        if (textareaRef.current) {
+            textareaRef.current.style.height = 'auto';
+            textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
         }
     };
 
@@ -128,59 +139,65 @@ export default function ContactMeForm({ title, subtitle }: ContactMeProps) {
                     <p className="text-muted-foreground text-center">{subtitle}</p>
                 </CardHeader>
                 <CardContent>
-                    <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div className="space-y-2">
-                                <Label htmlFor="firstName">First Name</Label>
-                                <Input id="firstName" name="firstName" required />
+                    {submitStatus === 'success' ? (
+                        <div className="text-center space-y-4">
+                            <CheckCircle className="w-16 h-16 text-green-500 mx-auto" />
+                            <h3 className="text-xl font-semibold">Message Sent Successfully!</h3>
+                            <p>Thank you for your message. You will receive an email confirmation shortly.</p>
+                            <Button onClick={() => router.refresh()} className="mt-4">Send Another Message</Button>
+                        </div>
+                    ) : (
+                        <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div className="space-y-2">
+                                    <Label htmlFor="firstName">First Name</Label>
+                                    <Input id="firstName" name="firstName" required disabled={isSubmitting} />
+                                </div>
+                                <div className="space-y-2">
+                                    <Label htmlFor="lastName">Last Name</Label>
+                                    <Input id="lastName" name="lastName" required disabled={isSubmitting} />
+                                </div>
                             </div>
                             <div className="space-y-2">
-                                <Label htmlFor="lastName">Last Name</Label>
-                                <Input id="lastName" name="lastName" required />
+                                <Label htmlFor="email">Email</Label>
+                                <Input id="email" name="email" type="email" required disabled={isSubmitting} />
                             </div>
-                        </div>
-                        <div className="space-y-2">
-                            <Label htmlFor="email">Email</Label>
-                            <Input id="email" name="email" type="email" required />
-                        </div>
-                        <div className="space-y-2">
-                            <Label htmlFor="phone">Phone (optional)</Label>
-                            <Input id="phone" name="phone" type="tel" />
-                        </div>
-                        <div className="space-y-2">
-                            <Label htmlFor="message">Message (max 1200 characters)</Label>
-                            <Textarea
-                                id="message"
-                                name="message"
-                                required
-                                maxLength={1200}
-                                rows={5}
-                            />
-                        </div>
-                        <div className="space-y-2">
-                            <Label htmlFor="attachment">Attachment (optional)</Label>
-                            <Input id="attachment" name="attachment" type="file" />
-                        </div>
-                        <Button
-                            type="submit"
-                            disabled={isSubmitting || !recaptchaLoaded}
-                            className="w-full"
-                        >
-                            {isSubmitting ? 'Sending...' : 'Send Message'}
-                        </Button>
-                        {submitStatus === 'success' && (
-                            <div className="flex items-center justify-center text-green-600">
-                                <CheckCircle className="mr-2" />
-                                Message sent successfully!
+                            <div className="space-y-2">
+                                <Label htmlFor="phone">Phone (optional)</Label>
+                                <Input id="phone" name="phone" type="tel" disabled={isSubmitting} />
                             </div>
-                        )}
-                        {submitStatus === 'error' && (
-                            <div className="flex items-center justify-center text-red-600">
-                                <AlertCircle className="mr-2" />
-                                There was an error sending your message. Please try again.
+                            <div className="space-y-2">
+                                <Label htmlFor="message">Message (max 1200 characters)</Label>
+                                <Textarea
+                                    ref={textareaRef}
+                                    id="message"
+                                    name="message"
+                                    required
+                                    maxLength={1200}
+                                    rows={5}
+                                    onChange={handleMessageChange}
+                                    disabled={isSubmitting}
+                                    style={{ height: textareaHeight, minHeight: '100px' }}
+                                />
+                                <p className="text-sm text-muted-foreground text-right">
+                                    {messageLength}/1200 characters
+                                </p>
                             </div>
-                        )}
-                    </form>
+                            <Button
+                                type="submit"
+                                disabled={isSubmitting || !recaptchaLoaded}
+                                className="w-full"
+                            >
+                                {isSubmitting ? 'Sending...' : 'Send Message'}
+                            </Button>
+                            {submitStatus === 'error' && (
+                                <div className="flex items-center justify-center text-red-600">
+                                    <AlertCircle className="mr-2" />
+                                    There was an error sending your message. Please try again.
+                                </div>
+                            )}
+                        </form>
+                    )}
                 </CardContent>
             </Card>
         </>
