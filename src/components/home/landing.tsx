@@ -32,14 +32,6 @@ const LandingSection: React.FC = () => {
                             <p className="text-lg text-muted-foreground">{item.text}</p>
                         </div>
                     ))}
-                    <div className="flex space-x-4">
-                        <Button asChild>
-                            <Link href="#contactMe">Contact Me</Link>
-                        </Button>
-                        <Button asChild variant="outline">
-                            <Link href="/aboutme">Resume/CV</Link>
-                        </Button>
-                    </div>
                 </div>
             </div>
         </div>
