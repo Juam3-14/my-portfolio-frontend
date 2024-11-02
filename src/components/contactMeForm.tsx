@@ -167,20 +167,20 @@ export default function ContactMeForm({ title, subtitle }: ContactMeProps) {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="space-y-2">
                                     <Label htmlFor="firstName">First Name</Label>
-                                    <Input id="firstName" name="firstName" required disabled={isSubmitting} />
+                                    <Input id="firstName" name="firstName" required/>
                                 </div>
                                 <div className="space-y-2">
                                     <Label htmlFor="lastName">Last Name</Label>
-                                    <Input id="lastName" name="lastName" required disabled={isSubmitting} />
+                                    <Input id="lastName" name="lastName" required />
                                 </div>
                             </div>
                             <div className="space-y-2">
                                 <Label htmlFor="email">Email</Label>
-                                <Input id="email" name="email" type="email" required disabled={isSubmitting} />
+                                <Input id="email" name="email" type="email" required/>
                             </div>
                             <div className="space-y-2">
                                 <Label htmlFor="phone">Phone (optional)</Label>
-                                <Input id="phone" name="phone" type="tel" disabled={isSubmitting} />
+                                <Input id="phone" name="phone" type="tel" />
                             </div>
                             <div className="space-y-2">
                                 <Label htmlFor="message">Message (max 1200 characters)</Label>
@@ -192,7 +192,6 @@ export default function ContactMeForm({ title, subtitle }: ContactMeProps) {
                                     maxLength={1200}
                                     rows={5}
                                     onChange={handleMessageChange}
-                                    disabled={isSubmitting}
                                     style={{ height: textareaHeight, minHeight: '100px' }}
                                 />
                                 <p className="text-sm text-muted-foreground text-right">
