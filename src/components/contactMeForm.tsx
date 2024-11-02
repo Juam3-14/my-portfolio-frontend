@@ -86,17 +86,23 @@ export default function ContactMeForm({ title, subtitle }: ContactMeProps) {
         const formData = new FormData(formRef.current)
 
         const formValues = {
-            firstName: formData.get("firstName"),
-            lastName: formData.get("lastName"),
-            email: formData.get("email"),
-            phone: formData.get("phone"),
-            message: formData.get("message")
+            firstName: formData.get("firstName") as string,
+            lastName: formData.get("lastName") as string,
+            email: formData.get("email") as string,
+            phone: formData.get("phone") as string,
+            message: formData.get("message") as string
         }
 
+        // Log form values for debugging
+        console.log("Form values:", formValues)
+
         try {
-            const response = await fetch((process.env.NEXT_PUBLIC_COMUNICATIONS_BACKEND) + "/verify-recaptcha", {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_COMUNICATIONS_BACKEND}/contact-message`, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json",
+                    // Add any necessary authentication headers here
+                },
                 body: JSON.stringify({ token, action, ...formValues }),
             });
 
@@ -106,7 +112,7 @@ export default function ContactMeForm({ title, subtitle }: ContactMeProps) {
                 setSubmitStatus('success');
                 router.refresh();
             } else {
-                console.error("Error en la validación del reCAPTCHA:", result);
+                console.error("Error in form submission:", result);
                 setSubmitStatus('error');
             }
         } catch (error) {
