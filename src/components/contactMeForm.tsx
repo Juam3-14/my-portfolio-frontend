@@ -86,17 +86,23 @@ export default function ContactMeForm({ title, subtitle }: ContactMeProps) {
         const formData = new FormData(formRef.current)
 
         const formValues = {
-            firstName: formData.get("firstName"),
-            lastName: formData.get("lastName"),
-            email: formData.get("email"),
-            phone: formData.get("phone"),
-            message: formData.get("message")
+            firstName: formData.get("firstName") as string,
+            lastName: formData.get("lastName") as string,
+            email: formData.get("email") as string,
+            phone: formData.get("phone") as string,
+            message: formData.get("message") as string
         }
 
+        // Log form values for debugging
+        console.log("Form values:", formValues)
+
         try {
-            const response = await fetch((process.env.NEXT_PUBLIC_COMUNICATIONS_BACKEND) + "/verify-recaptcha", {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_COMUNICATIONS_BACKEND}/contact-message`, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json",
+                    // Add any necessary authentication headers here
+                },
                 body: JSON.stringify({ token, action, ...formValues }),
             });
 
@@ -106,7 +112,7 @@ export default function ContactMeForm({ title, subtitle }: ContactMeProps) {
                 setSubmitStatus('success');
                 router.refresh();
             } else {
-                console.error("Error en la validación del reCAPTCHA:", result);
+                console.error("Error in form submission:", result);
                 setSubmitStatus('error');
             }
         } catch (error) {
@@ -161,20 +167,20 @@ export default function ContactMeForm({ title, subtitle }: ContactMeProps) {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="space-y-2">
                                     <Label htmlFor="firstName">First Name</Label>
-                                    <Input id="firstName" name="firstName" required disabled={isSubmitting} />
+                                    <Input id="firstName" name="firstName" required/>
                                 </div>
                                 <div className="space-y-2">
                                     <Label htmlFor="lastName">Last Name</Label>
-                                    <Input id="lastName" name="lastName" required disabled={isSubmitting} />
+                                    <Input id="lastName" name="lastName" required />
                                 </div>
                             </div>
                             <div className="space-y-2">
                                 <Label htmlFor="email">Email</Label>
-                                <Input id="email" name="email" type="email" required disabled={isSubmitting} />
+                                <Input id="email" name="email" type="email" required/>
                             </div>
                             <div className="space-y-2">
                                 <Label htmlFor="phone">Phone (optional)</Label>
-                                <Input id="phone" name="phone" type="tel" disabled={isSubmitting} />
+                                <Input id="phone" name="phone" type="tel" />
                             </div>
                             <div className="space-y-2">
                                 <Label htmlFor="message">Message (max 1200 characters)</Label>
@@ -186,7 +192,6 @@ export default function ContactMeForm({ title, subtitle }: ContactMeProps) {
                                     maxLength={1200}
                                     rows={5}
                                     onChange={handleMessageChange}
-                                    disabled={isSubmitting}
                                     style={{ height: textareaHeight, minHeight: '100px' }}
                                 />
                                 <p className="text-sm text-muted-foreground text-right">

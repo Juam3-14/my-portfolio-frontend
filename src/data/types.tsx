@@ -30,3 +30,11 @@ export interface Presentation {
     title: string;
     text: string;
 }
+
+export interface Project {
+    name: string;
+    description: string;
+    objective: string;
+    stackAndTools: string;
+    image: string;
+}

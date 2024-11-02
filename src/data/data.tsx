@@ -1,5 +1,5 @@
 // data.ts
-import { CareerExperienceItem, EducationItem, CourseItem, SkillCardProps, Presentation } from './types';
+import { CareerExperienceItem, EducationItem, CourseItem, SkillCardProps, Presentation, Project } from './types';
 
 export const careerExperienceData: CareerExperienceItem[] = [
     {
@@ -18,9 +18,9 @@ export const careerExperienceData: CareerExperienceItem[] = [
     },
     {
         company: "CIDS (Center of Investigation and Development of Software) - UTN FRC",
-        position: "Software Developer",
+        position: "PL-SQL Developer / Database Administrator / Data Engineer",
         period: "May 2017 - Mar 2024",
-        description: "I joined CIDS as an intern through an 'Induction Program for Freshman Students in Software Development.' During my first year, while studying the basics of Information Systems and Computer Science, I participated in requirements analysis, solution design, and documentation for initial projects (2017-2018). Later, as I gained a clearer understanding of my career path, I contributed as a QA tester, performing manual testing, project documentation, test case design and execution, and data validation (2018-2020). Once I had progressed further in my studies, I transitioned to the CIDS database team, working as a DBA and PL/SQL developer on various projects. Eventually, I began focusing on backend development, maintaining and developing relational databases, and creating the .NET framework endpoints that utilized the stored procedures I had written(2020-2024).",
+        description: "I joined CIDS as an intern through an 'Induction Program for Freshman Students in Software Development.' During my first year, while studying the basics of Information Systems and Computer Science, I participated in requirements analysis, solution design, and documentation for initial projects (2017-2018). Later, as I gained a clearer understanding of my career path, I contributed as a QA tester, performing manual testing, project documentation, test case design and execution, and data validation (2018-2020). Once I had progressed further in my studies, I transitioned to the CIDS team of data management, working as a DBA and PL/SQL developer on various projects. Eventually, I made my first steps on backend development: maintaining and developing (mostly) relational databases, and creating the .NET framework endpoints that utilized the stored procedures I had written (2020-2024).",
         tools: ["Postman", "Oracle PL/SQL", "MySQL", "PostgreSQL", ".NET Framework", "Microsoft PowerBI", "Python", "Git", "Scrum", "Agile"],
         responsibilities: [
             "Mantaining and developing productive and pre-productive relational databases",
@@ -89,7 +89,17 @@ export const knownSkills: SkillCardProps[] = [
 
 export const presentation: Presentation[] = [
     {
-        title: "Welcome to my still-in-progress Personal Portfolio!", 
+        title: "Welcome to my still-in-progress Personal Portfolio!",
         text: "Hi! I'm a passionate Information Systems Engineer on a journey to become a Full Stack Developer. With a strong foundation in both front-end and back-end technologies, I'm constantly learning and improving my skills to create robust and user-friendly web applications. This page is currently in progress, but feel free to contact me for feedback or any other topic :D",
+    }
+]
+
+export const project: Project[] = [
+    {
+        name: "",
+        description: "",
+        objective: "",
+        stackAndTools: "",
+        image: "",
     }
 ]
