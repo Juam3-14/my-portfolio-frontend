@@ -10,6 +10,8 @@ import { Label } from "@/components/ui/label"
 import { AlertCircle, CheckCircle } from 'lucide-react'
 import Script from 'next/script'
 
+import { useTranslation } from "@/hooks/useTranslation"
+
 interface ContactMeProps {
     title: string;
     subtitle: string;
@@ -36,6 +38,8 @@ export default function ContactMeForm({ title, subtitle }: ContactMeProps) {
     const formRef = useRef<HTMLFormElement>(null)
     const textareaRef = useRef<HTMLTextAreaElement>(null)
     const [formReset, setFormReset] = useState(false)
+
+    const { t } = useTranslation()
 
     useEffect(() => {
         if (typeof window !== 'undefined' && window.grecaptcha && window.grecaptcha.enterprise) {
@@ -151,39 +155,39 @@ export default function ContactMeForm({ title, subtitle }: ContactMeProps) {
                     {submitStatus === 'success' && !formReset ? (
                         <div className="text-center space-y-4">
                             <CheckCircle className="w-16 h-16 text-green-500 mx-auto" />
-                            <h3 className="text-xl font-semibold">Message Sent Successfully!</h3>
-                            <p>Thank you for your message. You will receive an email confirmation shortly.</p>
+                            <h3 className="text-xl font-semibold">{t('contactMe.success_title')}</h3>
+                            <p>{t('contactMe.success_text')}</p>
                             <Button onClick={() => {
                                 setSubmitStatus('idle');
                                 setIsSubmitting(false);
                                 setMessageLength(0);
                                 setFormReset(true);
                             }} className="mt-4">
-                                Send Another Message
+                                {t('contactMe.new_msg')}
                             </Button>
                         </div>
                     ) : (
                         <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="space-y-2">
-                                    <Label htmlFor="firstName">First Name</Label>
-                                    <Input id="firstName" name="firstName" required/>
+                                    <Label htmlFor="firstName">{t('contactMe.firstName')}</Label>
+                                    <Input id="firstName" name="firstName" required />
                                 </div>
                                 <div className="space-y-2">
-                                    <Label htmlFor="lastName">Last Name</Label>
+                                    <Label htmlFor="lastName">{t('contactMe.lastName')}</Label>
                                     <Input id="lastName" name="lastName" required />
                                 </div>
                             </div>
                             <div className="space-y-2">
-                                <Label htmlFor="email">Email</Label>
-                                <Input id="email" name="email" type="email" required/>
+                                <Label htmlFor="email">{t('contactMe.email')}</Label>
+                                <Input id="email" name="email" type="email" required />
                             </div>
                             <div className="space-y-2">
-                                <Label htmlFor="phone">Phone (optional)</Label>
+                                <Label htmlFor="phone">{t('contactMe.phone')}</Label>
                                 <Input id="phone" name="phone" type="tel" />
                             </div>
                             <div className="space-y-2">
-                                <Label htmlFor="message">Message (max 1200 characters)</Label>
+                                <Label htmlFor="message">{t('contactMe.message')}</Label>
                                 <Textarea
                                     ref={textareaRef}
                                     id="message"
@@ -195,7 +199,7 @@ export default function ContactMeForm({ title, subtitle }: ContactMeProps) {
                                     style={{ height: textareaHeight, minHeight: '100px' }}
                                 />
                                 <p className="text-sm text-muted-foreground text-right">
-                                    {messageLength}/1200 characters
+                                    {messageLength}{t('contactMe.max_message')}
                                 </p>
                             </div>
                             <Button
@@ -203,12 +207,12 @@ export default function ContactMeForm({ title, subtitle }: ContactMeProps) {
                                 disabled={isSubmitting || !recaptchaLoaded}
                                 className="w-full"
                             >
-                                {isSubmitting ? 'Sending...' : 'Send Message'}
+                                {isSubmitting ? t('contactMe.sending_label') : t('contactMe.send_label')}
                             </Button>
                             {submitStatus === 'error' && (
                                 <div className="flex items-center justify-center text-red-600">
                                     <AlertCircle className="mr-2" />
-                                    There was an error sending your message. Please try again.
+                                    {t('contactMe.error_msg')}
                                 </div>
                             )}
                         </form>

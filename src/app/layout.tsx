@@ -1,13 +1,22 @@
-import Link from 'next/link'
+'use client'
+
+import { AppProvider, useAppContext } from '../context/AppContext'
 import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+function RootLayoutInner({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  const { language, theme } = useAppContext()
 
-export const metadata: Metadata = {
-  title: 'Juan Pablo Piemonte Portfolio',
-  description: 'Personal portfolio of Juan Pablo Piemonte, Information Systems Engineer',
+  return (
+    <html lang={language}>
+      <body className={theme}>
+        {children}
+      </body>
+    </html>
+  )
 }
 
 export default function RootLayout({
@@ -16,10 +25,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        {children}
-      </body>
-    </html>
+    <AppProvider>
+      <RootLayoutInner>{children}</RootLayoutInner>
+    </AppProvider>
   )
 }
