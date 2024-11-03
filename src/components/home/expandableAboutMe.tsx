@@ -6,10 +6,33 @@ import { Button } from "@/components/ui/button"
 import { EyeIcon, FileText } from "lucide-react"
 import AboutMe from "@/components/home/aboutMe"
 import SkillCards from '@/components/skillCards'
-import { knownTools, knownSkills } from '@/data/data'
+import { knownTools as knownToolsEng, knownSkills as knownSkillsEng } from '@/data/data_eng'
+import { knownTools as knownToolsSpa, knownSkills as knownSkillsSpa } from '@/data/data_spa'
+import { useAppContext } from '@/context/AppContext'
 
 export default function ExpandableAboutMe() {
     const [showMoreAboutMe, setShowMoreAboutMe] = useState(false)
+    const { language } = useAppContext()
+
+    const isEnglish = language === 'en'
+
+    const knownTools = isEnglish ? knownToolsEng : knownToolsSpa
+    const knownSkills = isEnglish ? knownSkillsEng : knownSkillsSpa
+
+    // Send this into the data files to be mapped directly from the file
+    const showMoreText = isEnglish ? 'Show More' : 'Mostrar Más'
+    const showLessText = isEnglish ? 'Show Less' : 'Mostrar Menos'
+    const viewResumeEnglish = isEnglish ? 'View Resume (English)' : 'Ver Currículum (Inglés)'
+    const viewResumeSpanish = isEnglish ? 'View Resume (Spanish)' : 'Ver Currículum (Español)'
+    const toolsTitle = isEnglish ? 'Tools' : 'Herramientas'
+    const toolsSubtitle = isEnglish
+        ? 'Proficiency levels: from 0% (beginner) to 100% (expert)'
+        : 'Niveles de competencia: desde 0% (principiante) hasta 100% (experto)'
+    const skillsTitle = isEnglish ? 'Skills' : 'Habilidades'
+    const skillsSubtitle = isEnglish
+        ? 'Proficiency levels: highlighting areas of personal and professional strength'
+        : 'Niveles de competencia: destacando áreas de fortaleza personal y profesional'
+    // ------------------------------------------------------------------------------------------
 
     return (
         <section id="aboutMe" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
@@ -21,7 +44,7 @@ export default function ExpandableAboutMe() {
                     onClick={() => setShowMoreAboutMe(!showMoreAboutMe)}
                 >
                     <EyeIcon className="h-6 w-6" />
-                    <span>{showMoreAboutMe ? 'Show Less' : 'Show More'}</span>
+                    <span>{showMoreAboutMe ? showLessText : showMoreText}</span>
                 </Button>
             </div>
 
@@ -39,25 +62,25 @@ export default function ExpandableAboutMe() {
                                 <Button asChild>
                                     <a href="resources/Res_JuanPabloPiemonte.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center">
                                         <FileText className="mr-2 h-4 w-4" />
-                                        View Resume (English)
+                                        {viewResumeEnglish}
                                     </a>
                                 </Button>
                                 <Button asChild>
                                     <a href="resources/CV_JuanPabloPiemonte.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center">
                                         <FileText className="mr-2 h-4 w-4" />
-                                        View Resume (Spanish)
+                                        {viewResumeSpanish}
                                     </a>
                                 </Button>
                             </div>
                             <SkillCards
                                 skills={knownTools}
-                                title="Tools"
-                                subtitle="Proficiency levels: from 0% (beginner) to 100% (expert)"
+                                title={toolsTitle}
+                                subtitle={toolsSubtitle}
                             />
                             <SkillCards
                                 skills={knownSkills}
-                                title="Skills"
-                                subtitle="Proficiency levels: highlighting areas of personal and professional strength"
+                                title={skillsTitle}
+                                subtitle={skillsSubtitle}
                             />
                         </div>
                     </motion.div>

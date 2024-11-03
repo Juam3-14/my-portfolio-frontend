@@ -1,11 +1,23 @@
-import Link from "next/link"
+'use client'
+
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
 import IconsCollection from "../icons/iconsCollection"
-import { presentation } from '@/data/data';
+
+import { presentation as presentationEng } from '@/data/data_eng';
+import { presentation as presentationSpa } from '@/data/data_spa';
+import { useAppContext } from '@/context/AppContext'
+
+import { useTranslation } from "@/hooks/useTranslation"
 
 
 const LandingSection: React.FC = () => {
+    const { language } = useAppContext()
+
+    const isEnglish = language === 'en'
+    const presentation = isEnglish ? presentationEng : presentationSpa
+
+    const { t } = useTranslation()
+
     return (
         <div className="container px-4 md:px-6 max-w-7xl mx-auto pt-20">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -21,7 +33,7 @@ const LandingSection: React.FC = () => {
                         Juan Pablo Piemonte
                     </h1>
                     <p className="text-xl text-muted-foreground">
-                        Information Systems Engineer
+                        {t('landing.degree')}
                     </p>
                     <IconsCollection />
                 </div>
