@@ -61,30 +61,30 @@ export const coursesData: CourseItem[] = [
 ];
 
 export const knownTools: SkillCardProps[] = [
-    { name: "Python", level: 70, description: "He trabajado en varios proyectos de análisis de datos y desarrollo web." },
-    { name: "PL/SQL", level: 75, description: "Desarrollo de bases de datos y scripts para la automatización de procesos." },
-    { name: "Typescript", level: 55, description: "Uso de TypeScript en proyectos de frontend para mejorar la calidad del código." },
-    { name: "Javascript", level: 55, description: "Desarrollo de aplicaciones web interactivas utilizando JavaScript." },
-    { name: "FastAPI", level: 60, description: "Construcción de APIs rápidas y eficientes con FastAPI." },
-    { name: "React.js", level: 75, description: "Desarrollo de interfaces de usuario con React, enfocándome en la reutilización de componentes." },
-    { name: "Docker", level: 60, description: "Uso de Docker para la contenerización de aplicaciones y servicios." },
-    { name: "Git", level: 70, description: "Gestión de versiones de proyectos utilizando Git.Gestión de versiones de proyectos utilizando Git.Gestión de versiones de proyectos utilizando Git.Gestión de versiones de proyectos utilizando Git.Gestión de versiones de proyectos utilizando Git.Gestión de versiones de proyectos utilizando Git.Gestión de versiones de proyectos utilizando Git.Gestión de versiones de proyectos utilizando Git." },
-    { name: "Agile/Scrum", level: 70, description: "Me manejo cómodamente trabajando de manera ágil y ordenada. He participado de varios equipos que implementaban la metodología Scrum en su día a día para planificar y ejecutar las tareas." },
+    { name: "Python", level: 70, description: "I have worked on several projects in data analysis and web development, using Python as my main programming language for academic work and personal projects. This experience allowed me to deepen my understanding of Python's capabilities and apply it effectively in real-world scenarios." },
+    { name: "PL/SQL", level: 75, description: "I have experience in developing databases and writing PL/SQL scripts for process automation. This work has enabled me to streamline operations and improve efficiency by automating repetitive tasks, allowing for better data management and analysis." },
+    { name: "Typescript", level: 55, description: "I use TypeScript in my frontend projects to enhance code quality. By leveraging its strong typing and error-checking features, I can catch potential issues early in the development process, leading to more robust and maintainable applications." },
+    { name: "Javascript", level: 55, description: "I develop new features in interactive web applications using JavaScript, particularly with Node.js. This experience allows me to create dynamic server-side applications and enhance user interactions, making the overall experience more engaging and responsive." },
+    { name: "FastAPI", level: 60, description: "I build fast and efficient APIs with FastAPI. This framework allows me to create robust endpoints quickly, leveraging its asynchronous capabilities and automatic data validation to enhance performance and ensure reliability in my applications." },
+    { name: "React.js", level: 75, description: "I develop user interfaces with React, focusing on component reuse. This approach allows me to create modular and maintainable code, enhancing the overall efficiency of my projects while providing a consistent user experience across different parts of the application." },
+    { name: "Docker", level: 60, description: "I use Docker for containerizing applications and services. This technology allows me to create isolated environments, ensuring consistency across development, testing, and production stages, which simplifies deployment and improves scalability." },
+    { name: "Git", level: 70, description: "I manage project versions using Git. This version control system enables me to track changes, collaborate with team members, and maintain a history of modifications, ensuring a structured and efficient workflow throughout the development process." },
+    { name: "Agile/Scrum", level: 70, description: "I am comfortable working in an agile and organized manner. I have participated in several teams that implemented the Scrum methodology in their daily routines to plan and execute tasks effectively." },
 ]
 
 export const knownSkills: SkillCardProps[] = [
-    { name: "Problem solving", level: 85, description: "Soy un tipazo." },
-    { name: "Teamworking", level: 95, description: "Soy un tipazo." },
-    { name: "Fast learning", level: 80, description: "Soy un tipazo." },
-    { name: "Solutions design", level: 85, description: "Soy un tipazo." },
-    { name: "Critical thinking", level: 95, description: "Soy un tipazo." },
-    { name: "Thinking 'Out of the box'", level: 85, description: "Soy un tipazo." },
-    { name: "Hardworking", level: 90, description: "Soy un tipazo." },
-    { name: "Creativity and optimism", level: 100, description: "Soy un tipazo." },
-    { name: "Respect and cordiality", level: 90, description: "Soy un tipazo." },
-    { name: "Perseverance", level: 95, description: "Soy un tipazo." },
-    { name: "Integrity", level: 90, description: "Soy un tipazo." },
-    { name: "Self Management", level: 90, description: "Soy un tipazo." },
+    { name: "Problem Solving", level: 85, description: "I enjoy solving complex problems by proposing simple solutions. With methodical and tidy reasoning, I reach conclusions that integrate all the knowledge I possess to obtain the best possible solution to a problem." },
+    { name: "Teamwork", level: 95, description: "Team activities, such as sports, projects, work, and other playful activities, have transformed me into an intrinsically collaborative person, who knows that achieving synergistic cooperation is key to enhancing each team member's skills." },
+    { name: "Fast Learning", level: 80, description: "The simple act of learning brings me great satisfaction, which facilitates my study, implementation, and acquisition of new knowledge, tools, and technologies." },
+    { name: "Solution Design", level: 85, description: "Designing solutions in a way that is easily understandable is something I enjoy. With tidy and informative diagrams and schematics, I manage to describe both problems and their solutions." },
+    { name: "Critical Thinking", level: 95, description: "I strive to reach conclusions that guide my actions in a critical and methodical manner. Acknowledging the possibility of being wrong, I aim for my actions to be correct, democratic, and moral." },
+    { name: "Alternative Thinking 'Out of the Box'", level: 85, description: "The creativity and imagination that characterize me allow me to understand the problems I face from an approach that may differ from the traditional one. Therefore, when confronted with difficult situations, I trust my instincts to try alternatives that others may not have considered." },
+    { name: "Hard Work", level: 90, description: "Giving 100% in every step, even if that 100% represents only a fraction of my capacity at that moment, is fundamental to how I carry out tasks. There is no room for regret when the effort is total; if the results are not successful after giving my best, I only need to evaluate the process, improve, and grow." },
+    { name: "Creativity and Optimism", level: 100, description: "There is no problem that cannot be solved. This is the premise from which I approach adverse situations or difficult problems. In this way, my focus is oriented towards finding solutions, which allows me to quickly find alternatives to overcome issues." },
+    { name: "Respect and Kindness", level: 90, description: "Respectful, cordial, polite, and well-formulated communication is key to achieving effectiveness. Not only respecting diverse opinions and realities, but also communicating that respect for differences and using it for growth are key characteristics of my personality." },
+    { name: "Perseverance", level: 95, description: "Consistency and discipline are key aspects for improving in any activity. Both in the learning process and in skill refinement, persistence and the ability to manage frustration are traits I possess that allow me to progressively overcome difficulties." },
+    { name: "Integrity", level: 90, description: "I hold moral values based on respect, freedom, trust, and solidarity, and I seek to base my actions and decisions on those values, differentiating right from wrong, and always opting to do things in the best possible way." },
+    { name: "Self-Management and Responsibility", level: 90, description: "Time management and commitment are elements I have developed to achieve successful results in the multiple activities I have undertaken simultaneously throughout my life. This order and responsibility to meet the objectives of each activity have allowed me to become the person I am today." },
 ]
 
 export const presentation: Presentation[] = [
