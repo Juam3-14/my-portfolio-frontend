@@ -17,7 +17,7 @@ export const careerExperienceData: CareerExperienceItem[] = [
         ],
     },
     {
-        company: "CIDS (Center of Investigation and Development of Software) - UTN FRC",
+        company: "CIDS (Centro de Investigación y Desarrollo de Software) - UTN FRC",
         position: "Desarrollador PL-SQL / Administrador de Base de Datos / Ingeniero de Datos",
         period: "May 2017 - Mar 2024",
         description: "Me uní a CIDS como pasante a través de un 'Programa de Inducción para Estudiantes de Primer Año en Desarrollo de Software'. Durante mi primer año como estudiante universitario, mientras aprendía los fundamentos de los Sistemas de Información y la Informática, participé en el análisis de requisitos, el diseño de soluciones y la documentación de proyectos que se encontraban en sus fases iniciales (2017-2018). Más tarde, a medida que fui aumentando mis conocimientos, contribuí como tester de calidad de software, realizando pruebas manuales, documentación de proyectos, diseño y ejecución de casos de prueba, y validación de datos (2018-2020). Al avanzar más aún en mis estudios, pasé al equipo de gestión de datos de CIDS, trabajando como administrador de base de datos (DBA) y desarrollador PL/SQL en varios proyectos. Finalmente, di mis primeros pasos en el desarrollo backend: manteniendo y desarrollando (principalmente) bases de datos relacionales, y creando los endpoints del framework .NET que utilizaban los procedimientos almacenados que había escrito (2020-2024).",
@@ -66,30 +66,30 @@ export const coursesData: CourseItem[] = [
 ];
 
 export const knownTools: SkillCardProps[] = [
-    { name: "Python", level: 70, description: "He trabajado en varios proyectos de análisis de datos y desarrollo web." },
-    { name: "PL/SQL", level: 75, description: "Desarrollo de bases de datos y scripts para la automatización de procesos." },
-    { name: "Typescript", level: 55, description: "Uso de TypeScript en proyectos de frontend para mejorar la calidad del código." },
-    { name: "Javascript", level: 55, description: "Desarrollo de aplicaciones web interactivas utilizando JavaScript." },
-    { name: "FastAPI", level: 60, description: "Construcción de APIs rápidas y eficientes con FastAPI." },
-    { name: "React.js", level: 75, description: "Desarrollo de interfaces de usuario con React, enfocándome en la reutilización de componentes." },
-    { name: "Docker", level: 60, description: "Uso de Docker para la contenerización de aplicaciones y servicios." },
-    { name: "Git", level: 70, description: "Gestión de versiones de proyectos utilizando Git.Gestión de versiones de proyectos utilizando Git.Gestión de versiones de proyectos utilizando Git.Gestión de versiones de proyectos utilizando Git.Gestión de versiones de proyectos utilizando Git.Gestión de versiones de proyectos utilizando Git.Gestión de versiones de proyectos utilizando Git.Gestión de versiones de proyectos utilizando Git." },
-    { name: "Agile/Scrum", level: 70, description: "Me manejo cómodamente trabajando de manera ágil y ordenada. He participado de varios equipos que implementaban la metodología Scrum en su día a día para planificar y ejecutar las tareas." },
+    { name: "Python", level: 70, description: "He trabajado en varios proyectos de análisis de datos y desarrollo web, utilizando Python como mi lenguaje de programación principal para trabajos académicos y proyectos personales. Esta experiencia me permitió profundizar en las capacidades de Python y aplicarlo de manera efectiva en escenarios del mundo real." },
+    { name: "PL/SQL", level: 75, description: "Tengo experiencia en el desarrollo de bases de datos y la escritura de scripts en PL/SQL para la automatización de procesos. Este trabajo me ha permitido optimizar operaciones y mejorar la eficiencia al automatizar tareas repetitivas, lo que facilita una mejor gestión y análisis de datos." },
+    { name: "Typescript", level: 55, description: "Uso TypeScript en mis proyectos de frontend para mejorar la calidad del código. Al aprovechar su tipado fuerte y las funciones de verificación de errores, puedo detectar problemas potenciales desde el inicio del proceso de desarrollo, lo que resulta en aplicaciones más robustas y mantenibles." },
+    { name: "Javascript", level: 55, description: "Desarrollo nuevas funcionalidades en aplicaciones web utilizando JavaScript, particularmente con Node.js. Esta experiencia me permite crear aplicaciones dinámicas del lado del servidor y mejorar las interacciones con los usuarios, haciendo que la experiencia general sea más atractiva y receptiva." },
+    { name: "FastAPI", level: 60, description: "Construyo APIs rápidas y eficientes con FastAPI. Este framework me permite crear endpoints robustos rápidamente, aprovechando sus capacidades asincrónicas y la validación automática de datos para mejorar el rendimiento y garantizar la fiabilidad en mis aplicaciones." },
+    { name: "React.js", level: 75, description: "Desarrollo interfaces de usuario con React, enfocándome en la reutilización de componentes. Este enfoque me permite crear un código modular y mantenible, mejorando la eficiencia general de mis proyectos mientras ofrezco una experiencia de usuario consistente en las diferentes partes de la aplicación." },
+    { name: "Docker", level: 60, description: "Uso Docker para la contenerización de aplicaciones y servicios. Esta tecnología me permite crear entornos aislados, garantizando consistencia en las etapas de desarrollo, pruebas y producción, lo que simplifica el despliegue y mejora la escalabilidad." },
+    { name: "Git", level: 70, description: "Gestiono las versiones de los proyectos utilizando Git. Este sistema de control de versiones me permite rastrear cambios, colaborar con miembros del equipo y mantener un historial de modificaciones, asegurando un flujo de trabajo estructurado y eficiente durante el proceso de desarrollo." },
+    { name: "Agile/Scrum", level: 70, description: "Me manejo cómodamente trabajando de manera ágil y ordenada. He participado en varios equipos que implementaban la metodología Scrum en su día a día para planificar y ejecutar las tareas de manera efectiva." },
 ]
 
 export const knownSkills: SkillCardProps[] = [
-    { name: "Resolución de pProblemas", level: 85, description: "Soy un tipazo." },
-    { name: "Trabajo en equipo", level: 95, description: "Soy un tipazo." },
-    { name: "Aprendizaje rápido", level: 80, description: "Soy un tipazo." },
-    { name: "Diseño de soluciones", level: 85, description: "Soy un tipazo." },
-    { name: "Pensamiento crítico", level: 95, description: "Soy un tipazo." },
-    { name: "Pensamiento alternativo 'Out of the Box'", level: 85, description: "Soy un tipazo." },
-    { name: "Trabajo duro", level: 90, description: "Soy un tipazo." },
-    { name: "Creatividad y Optimismo", level: 100, description: "Soy un tipazo." },
-    { name: "Respeto y Cordialidad", level: 90, description: "Soy un tipazo." },
-    { name: "Perseverancia", level: 95, description: "Soy un tipazo." },
-    { name: "Integridad", level: 90, description: "Soy un tipazo." },
-    { name: "Autogestión y Responsabilidad", level: 90, description: "Soy un tipazo." },
+    { name: "Resolución de Problemas", level: 85, description: "Disfruto de resolver problemas complejos planteando soluciones sencillas. Con un razonamiento metódico y prolijo logro llegar a conclusiones que integran todos los conocimientos que poseo para obtener la mejor solución posible a un problema." },
+    { name: "Trabajo en equipo", level: 95, description: "Las actividades en equipo, como deportes, proyectos, trabajo y otras actividades lúdicas, me transformaron en una persona intrínsecamente colaborativa, que sabe que lograr una cooperación sinérgica es clave para potenciar las habilidades de cada miembro del equipo." },
+    { name: "Aprendizaje rápido", level: 80, description: "El simple hecho de aprender es algo que me genera mucha satisfacción, lo que facilita mi proceso de estudio, implementación y aprendizaje de nuevos conocimientos, herramientas y tecnologías." },
+    { name: "Diseño de soluciones", level: 85, description: "Diseñar soluciones de manera que sean fácilmente entendibles es algo que disfruto. Con esquemas y diagramas prolijos e informativos, logro describir tanto los problemas como sus soluciones." },
+    { name: "Pensamiento crítico", level: 95, description: "Busco llegar a las conclusiones que guían mis acciones de manera crítica y metódica, partiendo de la posibilidad de estar equivocado, intento que mis acciones sean correctas, democráticas y morales." },
+    { name: "Pensamiento alternativo 'Out of the Box'", level: 85, description: "La creatividad e imaginación que me caracterizan me permiten entender los problemas que se me presentan con una aproximación tal vez distinta a la tradicional, por lo que cuando me enfrento a situaciones difíciles de resolver, confío en mi instinto para probar alternativas que tal vez otras personas no han pensado." },
+    { name: "Trabajo duro", level: 90, description: "Dar el 100% en cada paso, aunque ese 100% represente sólamente una fracción de la capacidad en ese momento, es fundamental para mi forma de llevar a cabo tareas. No es posible arrepentirse cuando la entrega es total, si los resultados no son exitosos luego de haber hecho el máximo esfuerzo posible, solo queda evaluar el proceso, mejorar y crecer." },
+    { name: "Creatividad y Optimismo", level: 100, description: "No hay problema que no pueda resolverse. Esa es la premisa desde la que parto al momento de enfrentar situaciones adversas, o problemas difíciles de solucionar. De esta forma, mi enfoque está orientado a la obtención de soluciones, lo que me permite encontrar rápidamente alternativas para superar problemas." },
+    { name: "Respeto y Cordialidad", level: 90, description: "La comunicación respetuosa, cordial, educada y bien formulada es clave para lograr la efectividad. No solo respetar opiniones y realidades diversas, sino también comunicar ese respeto por la diferencia y utilizarla para crecer, son características clave en mi forma de ser." },
+    { name: "Perseverancia", level: 95, description: "La constancia y la disciplina son aspectos claves para mejorar en cualquier actividad. Tanto en el proceso de aprendizaje, como de perfeccionamiento de habilidades, la insistencia y el manejo de la frustración son características que poseo y que me permiten superar progresivamente las dificultades que me encuentro." },
+    { name: "Integridad", level: 90, description: "Tengo valores morales basados en el respeto, la libertad, la confianza y la solidaridad, y busco basar mis acciones y decisiones en esos valores, diferenciando lo correcto de lo incorrecto, y optando siempre por hacer las cosas de la mejor manera posible." },
+    { name: "Autogestión y Responsabilidad", level: 90, description: "La gestión del tiempo y de los compromisos es un elemento que he desarrollado para poder obtener resultados exitosos en las múltiples actividades que he hecho, en simultáneo, a lo largo de mi vida. Ese orden y responsabilidad para cumplir con los objetivos de cada actividad me han permitido llegar a ser la persona que soy hoy." },
 ]
 
 export const presentation: Presentation[] = [
