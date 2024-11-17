@@ -1,5 +1,5 @@
 // data.ts
-import { CareerExperienceItem, EducationItem, CourseItem, SkillCardProps, Presentation, Project } from './types';
+import { CareerExperienceItem, EducationItem, CourseItem, SkillCardProps, Presentation, ProjectItem } from './types';
 
 export const careerExperienceData: CareerExperienceItem[] = [
     {
@@ -58,6 +58,11 @@ export const coursesData: CourseItem[] = [
         provider: "Kinetic",
         completionDate: "Jul 2022",
     },
+    {
+        name: "B2 English Level Certificate",
+        provider: "Trinity College London",
+        completionDate: "Aug 2016",
+    },
 ];
 
 export const knownTools: SkillCardProps[] = [
@@ -94,12 +99,19 @@ export const presentation: Presentation[] = [
     }
 ]
 
-export const project: Project[] = [
+export const projects: ProjectItem[] = [
     {
-        name: "",
-        description: "",
-        objective: "",
-        stackAndTools: "",
-        image: "",
-    }
+        name: "Project One",
+        description: "A brief description of Project One",
+        objective: "The main objective of Project One",
+        stackAndTools: "React, Next.js, TypeScript",
+        image: "/resources/cualcito_200x300.jpeg"
+    },
+    {
+        name: "Project Two",
+        description: "A brief description of Project Two",
+        objective: "The main objective of Project Two",
+        stackAndTools: "Node.js, Express, MongoDB",
+        image: "/resources/cualcito_200x300.jpeg"
+    },
 ]

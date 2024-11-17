@@ -1,5 +1,5 @@
 // data.ts
-import { CareerExperienceItem, EducationItem, CourseItem, SkillCardProps, Presentation, Project } from './types';
+import { CareerExperienceItem, EducationItem, CourseItem, SkillCardProps, Presentation, ProjectItem } from './types';
 
 export const careerExperienceData: CareerExperienceItem[] = [
     {
@@ -99,12 +99,19 @@ export const presentation: Presentation[] = [
     }
 ]
 
-export const project: Project[] = [
+export const projects: ProjectItem[] = [
     {
-        name: "",
-        description: "",
-        objective: "",
-        stackAndTools: "",
-        image: "",
-    }
+        name: "Proyecto Uno",
+        description: "Breve descripción del proyecto uno.",
+        objective: "Objetivo principal del proyecto uno",
+        stackAndTools: "React, Next.js, TypeScript",
+        image: "/resources/cualcito_200x300.jpeg"
+    },
+    {
+        name: "Proyecto Dos",
+        description: "Breve descripción del proyecto dos.",
+        objective: "Objetivo principal del proyecto dos",
+        stackAndTools: "React, Next.js, TypeScript",
+        image: "/resources/cualcito_200x300.jpeg"
+    },
 ]
