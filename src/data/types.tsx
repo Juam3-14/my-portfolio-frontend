@@ -37,4 +37,5 @@ export interface ProjectItem {
     objective: string;
     stackAndTools: string;
     image: string;
+    githubLink: string;
 }
