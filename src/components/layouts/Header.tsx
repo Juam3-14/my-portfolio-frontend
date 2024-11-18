@@ -12,8 +12,7 @@ const Header = () => {
                     <span className="sr-only">Juan Pablo Piemonte</span>
                     <span className="text-2xl font-bold">{t('header.title')}</span>
                 </Link>
-                <nav className="flex gap-4 sm:gap-6">
-                    <ThemeLanguageSwitcher />
+                <nav className="flex items-center gap-4 sm:gap-6">
                     <Link className="text-sm font-medium hover:text-primary transition-colors" href="/#aboutMe">
                         {t('header.aboutMe')}
                     </Link>
@@ -21,8 +20,9 @@ const Header = () => {
                         {t('header.projects')}
                     </Link>
                     <Link className="text-sm font-medium hover:text-primary transition-colors" href="/#contactMe">
-                    {t('header.contactMe')}
+                        {t('header.contactMe')}
                     </Link>
+                    <ThemeLanguageSwitcher />
                 </nav>
             </div>
         </header>
