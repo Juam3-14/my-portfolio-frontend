@@ -1,5 +1,5 @@
 // data.ts
-import { CareerExperienceItem, EducationItem, CourseItem, SkillCardProps, Presentation, Project } from './types';
+import { CareerExperienceItem, EducationItem, CourseItem, SkillCardProps, Presentation, ProjectItem } from './types';
 
 export const careerExperienceData: CareerExperienceItem[] = [
     {
@@ -99,12 +99,21 @@ export const presentation: Presentation[] = [
     }
 ]
 
-export const project: Project[] = [
+export const projects: ProjectItem[] = [
     {
-        name: "",
-        description: "",
-        objective: "",
-        stackAndTools: "",
-        image: "",
-    }
+        name: "Mi Portfolio Personal (FrontEnd)",
+        description: "Aplicación web frontend para utilizar como portfolio personal y mostrar mis habilidades.",
+        objective: "Demostrar mis habilidades y consolidar mis aprendizajes de programación frontend, elaborando una página web personal que me sirva para subir mi información laboral, profesional y académica. A la vez, también será usado para 'unificar' el acceso a cada proyecto y herramienta que desarrolle, validando usuarios y redireccionando a cada servicio para permitirme usar mis propias aplicaciones web desde un único acceso.",
+        stackAndTools: "React, Next.js, TypeScript, TailwindCSS (CSS), HTML, Vercel (Hosting), GoogleCloud Services (reCaptcha)",
+        image: "/resources/frontend-personal-portfolio-v1.jpg",
+        githubLink: "https://github.com/Juam3-14/my-portfolio-frontend"
+    },
+    {
+        name: "Mi Portfolio Personal (Backend)",
+        description: "Aplicación web backend para brindar servicios de administración al frontend de mi portfolio personal.",
+        objective: "Demostrar mis habilidades y consolidar mis aprendizajes de programación frontend, construyendo una aplicación backend que permita dar servicios de administración de información para su correspondiente frontend. Próximamente se hará una aplicación construída en arquitectura de microservicios para distribuir las responsabilidades de este proyecto, como la validación de usuarios y su comportamiento, el envío de notificaciones, y el redireccionamiento a los demás servicios de mis demás aplicaciones y proyectos.",
+        stackAndTools: "FastAPI, Python, GoogleCloud Services (reCaptcha), SendGrid, Render (Hosting)",
+        image: "/resources/backend-personal-portfolio-v1.jpg",
+        githubLink: "https://github.com/Juam3-14/my-portfolio-backend"
+    },
 ]

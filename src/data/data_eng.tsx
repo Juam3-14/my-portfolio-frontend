@@ -1,5 +1,5 @@
 // data.ts
-import { CareerExperienceItem, EducationItem, CourseItem, SkillCardProps, Presentation, Project } from './types';
+import { CareerExperienceItem, EducationItem, CourseItem, SkillCardProps, Presentation, ProjectItem } from './types';
 
 export const careerExperienceData: CareerExperienceItem[] = [
     {
@@ -58,6 +58,11 @@ export const coursesData: CourseItem[] = [
         provider: "Kinetic",
         completionDate: "Jul 2022",
     },
+    {
+        name: "B2 English Level Certificate",
+        provider: "Trinity College London",
+        completionDate: "Aug 2016",
+    },
 ];
 
 export const knownTools: SkillCardProps[] = [
@@ -94,12 +99,21 @@ export const presentation: Presentation[] = [
     }
 ]
 
-export const project: Project[] = [
+export const projects: ProjectItem[] = [
     {
-        name: "",
-        description: "",
-        objective: "",
-        stackAndTools: "",
-        image: "",
+        name: "My Personal Portfolio (FrontEnd)",
+        description: "Frontend web application to be used as a personal portfolio and showcase my skills.",
+        objective: "Showcase my skills and consolidate my frontend programming knowledge by building a personal website to display my professional, academic, and work-related information. Additionally, it will be used to 'unify' access to each project and tool I develop, validating users and redirecting to each service, allowing me to access my own web applications from a single entry point.",
+        stackAndTools: "React, Next.js, TypeScript, TailwindCSS (CSS), HTML, Vercel (Hosting), GoogleCloud Services (reCaptcha)",
+        image: "/resources/frontend-personal-portfolio-v1.jpg",
+        githubLink: "https://github.com/Juam3-14/my-portfolio-frontend"
+    },
+    {
+        name: "My Personal Portfolio (Backend)",
+        description: "Backend web application to provide management services for the frontend of my personal portfolio.",
+        objective: "Showcase my skills and consolidate my backend programming knowledge by building a backend application that provides management services for its corresponding frontend. In the near future, this application will be redesigned into a microservices architecture to distribute the responsibilities of this project, such as user validation and behavior tracking, notification delivery, and redirection to the services of my other applications and projects.",
+        stackAndTools: "FastAPI, Python, GoogleCloud Services (reCaptcha), SendGrid, Render (Hosting)",
+        image: "/resources/backend-personal-portfolio-v1.jpg",
+        githubLink: "https://github.com/Juam3-14/my-portfolio-backend"
     }
 ]

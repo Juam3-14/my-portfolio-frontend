@@ -31,10 +31,11 @@ export interface Presentation {
     text: string;
 }
 
-export interface Project {
+export interface ProjectItem {
     name: string;
     description: string;
     objective: string;
     stackAndTools: string;
     image: string;
+    githubLink: string;
 }

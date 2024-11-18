@@ -49,6 +49,11 @@ const translations: { [key: string]: { [key: string]: TranslationValue } } = {
         courses: {
             title: "Courses & Certificates"
         },
+        project: {
+            objective: "Goals",
+            stackAndTools: "Stack and Tools Used",
+            viewRepository: "See Repository",
+        }
         // Add more English translations here
     },
     es: {
@@ -98,6 +103,11 @@ const translations: { [key: string]: { [key: string]: TranslationValue } } = {
         courses: {
             title: "Cursos y Certificaciones"
         },
+        project: {
+            objective: "Objetivos",
+            stackAndTools: "Stack y Herramientas",
+            viewRepository: "Ver Repositorio",
+        }
         // Add more Spanish translations here
     },
     // Add more languages as needed
