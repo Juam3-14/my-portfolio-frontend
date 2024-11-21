@@ -6,7 +6,7 @@ const translations: { [key: string]: { [key: string]: TranslationValue } } = {
         header: {
             title: "My Portfolio",
             aboutMe: "About Me",
-            projects: "Projects",
+            projects: "My Projects",
             contactMe: "Contact Info"
         },
         footer: {
@@ -60,7 +60,7 @@ const translations: { [key: string]: { [key: string]: TranslationValue } } = {
         header: {
             title: "My Portfolio",
             aboutMe: "Sobre mí",
-            projects: "Proyectos",
+            projects: "Mis Proyectos",
             contactMe: "Contacto"
         },
         footer: {

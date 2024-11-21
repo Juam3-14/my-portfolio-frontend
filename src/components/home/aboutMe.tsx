@@ -8,8 +8,10 @@ import { useAppContext } from '@/context/AppContext'
 import { careerExperienceData as careerExperienceEng, educationData as educationDataEng, coursesData as coursesDataEng, coursesData } from '@/data/data_eng';
 import { careerExperienceData as careerExperienceSpa, educationData as educationDataSpa, coursesData as coursesDataSpa } from '@/data/data_spa';
 
-const AboutMe: React.FC = () => {
+import { useTranslation } from "@/hooks/useTranslation"
 
+const AboutMe: React.FC = () => {
+    const { t } = useTranslation()
     const { language } = useAppContext()
     const isEnglish = language === 'en'
 
@@ -19,7 +21,7 @@ const AboutMe: React.FC = () => {
 
     return (
         <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl text-center mb-12">About Me</h1>
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl text-center mb-12">{t('header.aboutMe')}</h1>
             <div className="grid grid-cols-1 gap-8">
                 <CareerExperience jobs={careerExperienceData} />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
