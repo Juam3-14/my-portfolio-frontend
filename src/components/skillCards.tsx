@@ -71,11 +71,6 @@ export default function SkillCards({ skills, title, subtitle }: SkillCardsProps)
                                     >
                                         <p className="text-gray-600 dark:text-gray-300">{skill.description}</p>
                                     </motion.div>
-                                    <div className="absolute bottom-2 right-2 sm:hidden">
-                                        <span className="text-xs text-gray-500 bg-gray-200 dark:bg-gray-700 dark:text-gray-400 px-2 py-1 rounded-full">
-                                            More...
-                                        </span>
-                                    </div>
                                 </CardContent>
                             </Card>
                         </motion.div>
